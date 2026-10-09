@@ -26,8 +26,8 @@
     --ink-faint: #7A7A7A;
     --on-panel: #FFFFFF;
     --on-panel-soft: #B5B5B5;
-    --orange: #F35A1F;
-    --orange-2: #FF8A3D;
+    --accent: #8FD16A;
+    --accent-2: #A8E37F;
     --line: rgba(255, 255, 255, 0.1);
     --line-dark: rgba(255, 255, 255, 0.12);
     --radius: 4px;
@@ -38,7 +38,7 @@
   body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; }
   img { display: block; max-width: 100%; height: auto; }
-  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
   .page { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   .panel { background: var(--panel); color: var(--on-panel); border-radius: var(--radius); }
@@ -59,21 +59,20 @@
   .pill {
     display: inline-flex; align-items: center; gap: 14px;
     padding: 9px 9px 9px 24px; border-radius: 3px;
-    background: linear-gradient(180deg, var(--orange-2), var(--orange));
-    color: #fff; font-weight: 700; font-size: 16px; text-decoration: none;
-    box-shadow: 0 10px 30px rgba(243, 90, 31, 0.35);
+    background: linear-gradient(180deg, var(--accent-2), var(--accent));
+    color: #10200A; font-weight: 700; font-size: 16px; text-decoration: none;
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
-  .pill:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(243, 90, 31, 0.45); }
-  .pill .dot { width: 34px; height: 34px; border-radius: 2px; background: #fff; display: grid; place-items: center; }
-  .pill .dot svg { width: 16px; height: 16px; stroke: var(--orange); }
+  .pill:hover { filter: brightness(1.06); }
+  .pill .dot { width: 34px; height: 34px; border-radius: 2px; background: #10200A; display: grid; place-items: center; }
+  .pill .dot svg { width: 16px; height: 16px; stroke: var(--accent-2); }
   .ghost {
     display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 3px;
     border: 1.5px solid var(--line-dark); color: var(--on-panel); font-weight: 600; font-size: 15px; text-decoration: none;
   }
   .ghost:hover { border-color: #fff; }
   .arrow { width: 34px; height: 34px; border-radius: 2px; background: #fff; display: grid; place-items: center; flex: none; }
-  .arrow svg { width: 16px; height: 16px; stroke: var(--orange); }
+  .arrow svg { width: 16px; height: 16px; stroke: var(--accent); }
 
   /* Hero */
   .hero { padding: clamp(56px, 9vw, 96px) clamp(20px, 3vw, 28px); text-align: center; }
@@ -91,7 +90,7 @@
 
   /* About */
   .about { padding: clamp(80px, 12vw, 140px) 0; text-align: center; }
-  .avatar { width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 32px; background: linear-gradient(180deg, var(--orange-2), var(--orange)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 36px; letter-spacing: -0.02em; }
+  .avatar { width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 32px; background: linear-gradient(180deg, var(--accent-2), var(--accent)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 36px; letter-spacing: -0.02em; }
   .about p.big { font-size: clamp(22px, 2.9vw, 34px); line-height: 1.35; font-weight: 600; letter-spacing: -0.02em; max-width: 24em; margin: 0 auto; }
   .about p.big span { color: var(--ink-faint); }
 
@@ -122,7 +121,7 @@
   .slide .cols p { margin: 6px 0 0; font-size: 15px; font-weight: 600; line-height: 1.5; }
   .slide ul { margin: 0; padding-left: 1.1em; color: var(--on-panel-soft); font-size: 16px; }
   .slide li { margin-bottom: 6px; }
-  .slide li::marker { color: var(--orange); }
+  .slide li::marker { color: var(--accent); }
   .slide .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
   .dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
   .dots span { width: 7px; height: 7px; border-radius: 50%; background: #4A4A4A; transition: background 200ms; }
@@ -170,7 +169,7 @@
 <div class="page">
   <header>
     <a class="mark" href="#top" aria-label="Jacob Scherwitz, back to top">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1c1.2 8.2 6.8 13.8 15 15-8.2 1.2-13.8 6.8-15 15-1.2-8.2-6.8-13.8-15-15C9.2 14.8 14.8 9.2 16 1Z" fill="#F35A1F"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1c1.2 8.2 6.8 13.8 15 15-8.2 1.2-13.8 6.8-15 15-1.2-8.2-6.8-13.8-15-15C9.2 14.8 14.8 9.2 16 1Z" fill="#8FD16A"/></svg>
       Jacob Scherwitz
     </a>
   </header>
@@ -179,7 +178,7 @@
     <h1>Hi, I'm Jacob.</h1>
     <p class="lede">I study computer science at UTSA with a cyber security concentration. Outside of class I build small tools for myself. Two of them are below.</p>
     <div class="actions">
-      <a class="pill" href="mailto:jhscherwitz@gmail.com">Email me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       <a class="ghost" href="Jacob_Scherwitz_Resume.pdf">View resume</a>
     </div>
   </section>
@@ -246,7 +245,7 @@
     <h2>Get in touch</h2>
     <p style="color:var(--on-panel-soft);margin:0 auto 28px;max-width:32em">I'm looking for a cybersecurity internship in San Antonio or Houston.</p>
     <div class="actions">
-      <a class="pill" href="mailto:jhscherwitz@gmail.com">Email me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
     <div class="foot">
       <div><h4>Jacob Scherwitz</h4><p>San Antonio and Katy, Texas.</p></div>
