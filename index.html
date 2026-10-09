@@ -8,258 +8,298 @@
 <meta property="og:title" content="Jacob Scherwitz">
 <meta property="og:description" content="Computer science student at UTSA concentrating in cyber security. CompTIA Security+ certified.">
 <meta property="og:image" content="https://jhscherwitz.github.io/img/lifehub-dashboard.jpg">
-<meta name="theme-color" content="#0C2340">
+<meta name="theme-color" content="#161616">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  @font-face { font-family: "Geist"; src: url("fonts/geist-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-  @font-face { font-family: "Geist"; src: url("fonts/geist-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-  @font-face { font-family: "Geist"; src: url("fonts/geist-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-  @font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-  @font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+  @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+  @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+
   :root {
-    --navy: #0C2340;
-    --navy-raised: #12305A;
-    --ink: #F3EFE7;
-    --muted: #AEB9CA;
-    --orange: #F15A22;
-    --line: rgba(243, 239, 231, 0.14);
-    --display: "Unbounded", "Arial Black", sans-serif;
-    --body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --wrap: 1120px;
-    --gutter: clamp(20px, 5vw, 56px);
+    --page: #FFFFFF;
+    --panel: #161616;
+    --panel-2: #0D0D0D;
+    --ink: #161616;
+    --ink-soft: #5A5A5A;
+    --ink-faint: #A3A3A3;
+    --on-panel: #FFFFFF;
+    --on-panel-soft: #B5B5B5;
+    --orange: #F35A1F;
+    --orange-2: #FF8A3D;
+    --line: #E6E6E6;
+    --line-dark: rgba(255, 255, 255, 0.12);
+    --radius: 32px;
+    --font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; }
-  a:focus-visible, .btn:focus-visible {
-    outline: 3px solid var(--orange);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+  img { display: block; max-width: 100%; height: auto; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
 
-  /* Nav */
-  nav { display: flex; justify-content: flex-end; gap: 28px; padding: 28px 0 0; font-size: 15px; }
-  nav a { color: var(--muted); text-decoration: none; }
+  .page { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+  .panel { background: var(--panel); color: var(--on-panel); border-radius: var(--radius); }
+
+  /* Header */
+  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 4px; }
+  .mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+  .mark svg { width: 30px; height: 30px; }
+  nav { display: flex; gap: 28px; font-weight: 600; font-size: 15px; }
+  nav a { text-decoration: none; color: var(--ink-soft); }
   nav a:hover { color: var(--ink); }
 
+  /* Labels */
+  .label { font-size: 13px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  .panel .label { color: var(--on-panel-soft); }
+
+  /* Buttons */
+  .pill {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 9px 9px 9px 24px; border-radius: 999px;
+    background: linear-gradient(180deg, var(--orange-2), var(--orange));
+    color: #fff; font-weight: 700; font-size: 16px; text-decoration: none;
+    box-shadow: 0 10px 30px rgba(243, 90, 31, 0.35);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .pill:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(243, 90, 31, 0.45); }
+  .pill .dot { width: 34px; height: 34px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+  .pill .dot svg { width: 16px; height: 16px; stroke: var(--orange); }
+  .ghost {
+    display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px;
+    border: 1.5px solid var(--line-dark); color: var(--on-panel); font-weight: 600; font-size: 15px; text-decoration: none;
+  }
+  .ghost:hover { border-color: #fff; }
+  .arrow { width: 34px; height: 34px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; }
+  .arrow svg { width: 16px; height: 16px; stroke: var(--orange); }
+
   /* Hero */
-  .hero { padding: clamp(56px, 11vw, 128px) 0 clamp(64px, 10vw, 112px); }
-  .name {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(34px, 10.4vw, 132px);
-    line-height: 0.92;
-    letter-spacing: -0.035em;
-    margin: 0;
-  }
-  .name span { display: block; }
-  .bar {
-    height: clamp(10px, 1.4vw, 16px);
-    width: min(62%, 560px);
-    background: var(--orange);
-    margin: clamp(20px, 3vw, 32px) 0 clamp(28px, 4vw, 44px);
-    transform-origin: left;
-    animation: grow 900ms cubic-bezier(.2, .7, .1, 1) 150ms both;
-  }
-  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-  .intro { max-width: 34em; font-size: clamp(18px, 2vw, 21px); color: var(--ink); margin: 0 0 32px; }
-  .intro em { font-style: normal; color: var(--muted); }
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    border: 1.5px solid var(--line);
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    transition: border-color 150ms, background 150ms;
-  }
-  .btn:hover { border-color: var(--ink); }
-  .btn.primary { background: var(--orange); border-color: var(--orange); color: #fff; }
-  .btn.primary:hover { background: #d94c18; border-color: #d94c18; }
+  .hero { padding: clamp(56px, 9vw, 96px) clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px); text-align: center; }
+  .hero h1 { font-size: clamp(38px, 6.6vw, 76px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 800; margin: 0 auto 20px; max-width: 13em; }
+  .hero .lede { color: var(--on-panel-soft); max-width: 38em; margin: 0 auto 32px; font-size: clamp(16px, 1.5vw, 18px); }
+  .hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: clamp(40px, 6vw, 64px); text-align: left; }
+  .card { position: relative; display: block; border-radius: 24px; overflow: hidden; aspect-ratio: 16 / 10; text-decoration: none; color: #fff; background: var(--panel-2); }
+  .card img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform 500ms ease; }
+  .card:hover img { transform: scale(1.03); }
+  .card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.85)); }
+  .card .meta { position: absolute; left: 22px; right: 22px; bottom: 20px; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .card h3 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+  .card p { margin: 2px 0 0; font-size: 14px; color: var(--on-panel-soft); }
 
-  /* Sections */
-  section { border-top: 1px solid var(--line); padding: clamp(56px, 8vw, 96px) 0; }
-  h2 {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(26px, 3.4vw, 38px);
-    letter-spacing: -0.02em;
-    margin: 0 0 clamp(36px, 5vw, 56px);
-  }
+  /* About */
+  .about { padding: clamp(80px, 12vw, 140px) 0; text-align: center; }
+  .avatar { width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 32px; background: linear-gradient(180deg, var(--orange-2), var(--orange)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 36px; letter-spacing: -0.02em; }
+  .about p.big { font-size: clamp(22px, 2.9vw, 34px); line-height: 1.35; font-weight: 600; letter-spacing: -0.02em; max-width: 24em; margin: 0 auto; }
+  .about p.big span { color: var(--ink-faint); }
 
-  /* Projects */
-  .project { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
-  .project + .project { margin-top: clamp(64px, 9vw, 112px); }
-  .shot { margin: 0; }
-  .shot img {
-    display: block; width: 100%; height: auto;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  }
-  .shot figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
-  .project h3 {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(24px, 2.6vw, 30px);
-    letter-spacing: -0.015em;
-    margin: 0 0 6px;
-  }
-  .stack { color: var(--orange); font-weight: 500; font-size: 15px; margin: 0 0 16px; }
-  .project p { margin: 0 0 16px; }
-  .project ul { margin: 0 0 22px; padding-left: 1.1em; }
-  .project li { margin-bottom: 8px; }
-  .project li::marker { color: var(--orange); }
-  .project .links .btn { padding: 9px 16px; font-size: 14px; }
+  /* Focus */
+  .focus { padding: clamp(64px, 9vw, 100px) clamp(20px, 4vw, 52px); text-align: center; }
+  .focus-list { list-style: none; margin: 28px 0 0; padding: 0; }
+  .focus-list li { font-size: clamp(30px, 6vw, 72px); font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.16; }
+  .focus-list li + li { margin-top: 2px; }
 
-  /* Background */
-  dl { display: grid; grid-template-columns: 200px 1fr; gap: 0; margin: 0; }
-  dt, dd { padding: 18px 0; border-bottom: 1px solid var(--line); margin: 0; }
-  dt { color: var(--muted); font-size: 15px; padding-top: 20px; }
-  dd strong { font-weight: 600; }
-  dd span { display: block; color: var(--muted); font-size: 15px; }
+  /* Selected projects */
+  .projects { margin-top: clamp(64px, 9vw, 100px); text-align: left; }
+  .projects-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+  .nav-btns { display: flex; gap: 10px; }
+  .nav-btns button { width: 42px; height: 42px; border-radius: 50%; border: 0; background: #2A2A2A; color: #fff; cursor: pointer; display: grid; place-items: center; }
+  .nav-btns button:hover { background: #3A3A3A; }
+  .nav-btns svg { width: 16px; height: 16px; stroke: currentColor; }
+  .track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; background: var(--panel-2); border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 1.35fr 1fr; }
+  .slide .shot { position: relative; min-height: 320px; align-self: stretch; }
+  .slide { align-items: stretch; }
+  .slide .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+  .slide .body { padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px; }
+  .slide .count { font-size: 13px; letter-spacing: 0.3em; color: var(--on-panel-soft); }
+  .slide h3 { margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .slide .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .slide .cols p { margin: 6px 0 0; font-size: 15px; font-weight: 600; line-height: 1.5; }
+  .slide ul { margin: 0; padding-left: 1.1em; color: var(--on-panel-soft); font-size: 15px; }
+  .slide li { margin-bottom: 6px; }
+  .slide li::marker { color: var(--orange); }
+  .slide .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+  .dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+  .dots span { width: 7px; height: 7px; border-radius: 50%; background: #4A4A4A; transition: background 200ms; }
+  .dots span.on { background: #fff; }
 
-  /* Footer */
-  footer { border-top: 1px solid var(--line); padding: clamp(56px, 8vw, 96px) 0 48px; }
-  .closing {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(24px, 3.6vw, 40px);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    max-width: 22em;
-    margin: 0 0 28px;
-  }
-  .fine { color: var(--muted); font-size: 14px; margin-top: 56px; }
+  /* Background rows */
+  .background { padding: clamp(80px, 12vw, 140px) 0 clamp(60px, 9vw, 100px); }
+  .background .label { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+  .row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 34px 4px; border-bottom: 1px solid var(--line); }
+  .row:first-of-type { border-top: 1px solid var(--line); }
+  .row .num { font-size: 15px; letter-spacing: 0.3em; color: var(--ink-faint); font-weight: 600; }
+  .row h3 { margin: 0 0 10px; font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; color: #8C8C8C; line-height: 1.1; }
+  .row p { margin: 0; color: var(--ink-soft); max-width: 34em; }
 
-  @media (max-width: 820px) {
-    .project { grid-template-columns: 1fr; }
-    dl { grid-template-columns: 1fr; }
-    dt { border-bottom: 0; padding-bottom: 0; }
-    dd { padding-top: 4px; }
-    nav { justify-content: flex-start; gap: 20px; }
+  /* Contact + footer */
+  .contact { padding: clamp(72px, 10vw, 112px) clamp(20px, 4vw, 52px) 32px; text-align: center; margin-bottom: 20px; }
+  .contact h2 { font-size: clamp(36px, 6vw, 68px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800; margin: 0 auto 28px; max-width: 12em; }
+  .contact .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+  .foot { margin-top: clamp(64px, 9vw, 96px); padding-top: 40px; border-top: 1px solid var(--line-dark); display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: left; }
+  .foot h4 { margin: 0 0 12px; font-size: 16px; font-weight: 700; }
+  .foot ul { list-style: none; margin: 0; padding: 0; }
+  .foot li { margin-bottom: 8px; }
+  .foot a { color: var(--on-panel-soft); text-decoration: none; }
+  .foot a:hover { color: #fff; }
+  .foot p { color: var(--on-panel-soft); margin: 0; }
+  .copy { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line-dark); color: #7A7A7A; font-size: 14px; }
+
+  @media (max-width: 860px) {
+    nav { gap: 18px; font-size: 14px; }
+    nav a.hide-sm { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    .slide { grid-template-columns: 1fr; }
+    .slide .shot { min-height: 0; aspect-ratio: 16 / 10; }
+    .row { grid-template-columns: 1fr; gap: 8px; }
+    .foot { grid-template-columns: 1fr; text-align: center; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .bar { animation: none; }
     html { scroll-behavior: auto; }
+    .pill, .card img { transition: none; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav aria-label="Sections">
-    <a href="#projects">Projects</a>
-    <a href="#background">Background</a>
-    <a href="Jacob_Scherwitz_Resume.pdf">Resume</a>
-  </nav>
-
-  <header class="hero">
-    <h1 class="name"><span>Jacob</span><span>Scherwitz</span></h1>
-    <div class="bar" aria-hidden="true"></div>
-    <p class="intro">Computer science student at UTSA with a concentration in cyber security, and CompTIA Security+ certified. <em>I build the tools I use every day. Two of them are below.</em></p>
-    <div class="links">
-      <a class="btn primary" href="Jacob_Scherwitz_Resume.pdf">View resume</a>
-      <a class="btn" href="https://github.com/jhscherwitz">GitHub</a>
-      <a class="btn" href="https://linkedin.com/in/jacobscherwitz">LinkedIn</a>
-      <a class="btn" href="mailto:jhscherwitz@gmail.com">Email me</a>
-    </div>
+<div class="page">
+  <header>
+    <a class="mark" href="#top" aria-label="Jacob Scherwitz, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1c1.2 8.2 6.8 13.8 15 15-8.2 1.2-13.8 6.8-15 15-1.2-8.2-6.8-13.8-15-15C9.2 14.8 14.8 9.2 16 1Z" fill="#F35A1F"/></svg>
+      Jacob Scherwitz
+    </a>
+    <nav aria-label="Sections">
+      <a class="hide-sm" href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a class="hide-sm" href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
+
+  <section class="panel hero" id="top">
+    <h1>Cybersecurity Student Based in San Antonio</h1>
+    <p class="lede">Computer science at UTSA with a cyber security concentration, and CompTIA Security+ certified. I build the tools I use every day.</p>
+    <div class="actions">
+      <a class="pill" href="#contact">Contact Me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="ghost" href="Jacob_Scherwitz_Resume.pdf">View resume</a>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://github.com/jhscherwitz/life-hub">
+        <img src="img/lifehub-dashboard.jpg" width="1280" height="840" alt="Life Hub dashboard with weather, today's meetings on a timeline, tasks and an AI assistant panel">
+        <div class="meta"><div><h3>Life Hub</h3><p>Desktop app with an AI agent</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="card" href="https://jhscherwitz.github.io/lockedin/">
+        <img src="img/lockedin.jpg" width="1440" height="900" alt="LockedIn focus timer showing one hour, with a side rail of panels" loading="lazy">
+        <div class="meta"><div><h3>LockedIn</h3><p>Study dashboard with live sync</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="avatar" aria-hidden="true">JS</div>
+    <p class="big">Hi, I'm Jacob. I'm a sophomore at UTSA studying computer science with a concentration in cyber security. <span>I earned my Security+ in high school after two years of Cisco networking classes, and now I spend my free time building software I actually use.</span></p>
+  </section>
+
+  <section class="panel focus" id="projects">
+    <p class="label">What I'm doing</p>
+    <ul class="focus-list">
+      <li>Cybersecurity</li>
+      <li>Networking</li>
+      <li>Web Development</li>
+      <li>Desktop Apps</li>
+    </ul>
+
+    <div class="projects">
+      <div class="projects-head">
+        <p class="label">Selected projects</p>
+        <div class="nav-btns">
+          <button type="button" data-dir="-1" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="track" id="track">
+        <article class="slide">
+          <div class="shot"><img src="img/lifehub-dashboard.jpg" width="1280" height="840" alt="" loading="lazy"></div>
+          <div class="body">
+            <span class="count">01 / 02</span>
+            <div class="cols">
+              <div><p class="label">Project</p><p>Life Hub</p></div>
+              <div><p class="label">Type</p><p>Desktop App<br>AI Agent<br>TypeScript, React, Electron</p></div>
+            </div>
+            <ul>
+              <li>An AI agent on Gemini function calling plans across 25+ tools, and every action it takes can be undone.</li>
+              <li>Google sign-in with OAuth 2.0 and PKCE; secrets encrypted with the OS keychain.</li>
+              <li>360+ unit tests in Vitest, end-to-end checks in Playwright.</li>
+            </ul>
+            <div class="links">
+              <a class="ghost" href="https://github.com/jhscherwitz/life-hub">Code</a>
+              <a class="ghost" href="https://jhscherwitz.github.io/life-hub/">Project page</a>
+            </div>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="shot"><img src="img/lockedin.jpg" width="1440" height="900" alt="" loading="lazy"></div>
+          <div class="body">
+            <span class="count">02 / 02</span>
+            <div class="cols">
+              <div><p class="label">Project</p><p>LockedIn</p></div>
+              <div><p class="label">Type</p><p>Web App<br>Real-time Sync<br>JavaScript</p></div>
+            </div>
+            <ul>
+              <li>Google Calendar through OAuth 2.0 entirely in the browser, so no server ever holds a token.</li>
+              <li>Pause and resume sync across machines through a hand-written MQTT client of about 8KB.</li>
+              <li>Discord Rich Presence over the app's local IPC protocol, with no dependencies.</li>
+            </ul>
+            <div class="links">
+              <a class="ghost" href="https://jhscherwitz.github.io/lockedin/">Try it</a>
+              <a class="ghost" href="https://github.com/jhscherwitz/lockedin">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="dots" aria-hidden="true"><span class="on"></span><span></span></div>
+    </div>
+  </section>
+
+  <section class="background" id="background">
+    <p class="label">Background</p>
+    <div class="row"><span class="num">01</span><div><h3>UTSA</h3><p>B.S. Computer Science (Artificial Intelligence) with a Cyber Security concentration. Expected May 2029. Member of the UTSA Cybersecurity Club (Cyber Jedis).</p></div></div>
+    <div class="row"><span class="num">02</span><div><h3>CompTIA Security+</h3><p>Earned May 2025 through Miller Career &amp; Technology Center's cyber security course. <a href="https://www.credly.com/badges/8416bdd7-ce28-4b76-98ec-d2aa6dd01e0b">View the badge</a>.</p></div></div>
+    <div class="row"><span class="num">03</span><div><h3>Cisco Networking</h3><p>Network Engineering I and II at Miller Career &amp; Technology Center in Katy, 2023 to 2025.</p></div></div>
+    <div class="row"><span class="num">04</span><div><h3>IEEE Peer Reviewer</h3><p>Reviewed a manuscript for IEEE Aerospace and Electronic Systems Magazine in 2026.</p></div></div>
+  </section>
+
+  <section class="panel contact" id="contact">
+    <h2>Looking for a Cybersecurity Intern?</h2>
+    <div class="actions">
+      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact Me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="foot">
+      <div><h4>Jacob Scherwitz</h4><p>San Antonio and Katy, Texas. Open to cybersecurity internships in San Antonio and Houston.</p></div>
+      <div><h4>Navigation</h4><ul><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#background">Background</a></li><li><a href="Jacob_Scherwitz_Resume.pdf">Resume</a></li></ul></div>
+      <div><h4>Find me</h4><ul><li><a href="mailto:jhscherwitz@gmail.com">jhscherwitz@gmail.com</a></li><li><a href="https://linkedin.com/in/jacobscherwitz">LinkedIn</a></li><li><a href="https://github.com/jhscherwitz">GitHub</a></li></ul></div>
+    </div>
+    <p class="copy">2026 | Jacob Scherwitz</p>
+  </section>
 </div>
 
-<section id="projects">
-  <div class="wrap">
-    <h2>Projects</h2>
-
-    <article class="project">
-      <figure class="shot">
-        <img src="img/lifehub-dashboard.jpg" width="1280" height="840" alt="Life Hub dashboard showing weather, today's meetings on a timeline, tasks, and an AI assistant panel">
-        <figcaption>The dashboard, running on sample data</figcaption>
-      </figure>
-      <div>
-        <h3>Life Hub</h3>
-        <p class="stack">TypeScript, React, Electron</p>
-        <p>A desktop app that runs my day: calendar, email, tasks and Canvas grades on one page, with an AI assistant that takes actions instead of only answering. Everything runs on my own computer, with no server and no account.</p>
-        <ul>
-          <li>An AI agent built on Gemini function calling plans across 25+ tools, from moving calendar events to drafting emails, and every action it takes can be undone.</li>
-          <li>Google sign-in uses OAuth 2.0 with PKCE, and stored secrets are encrypted with the operating system's keychain.</li>
-          <li>The built-in browser runs in an isolated, sandboxed session with ad and tracker blocking.</li>
-          <li>Backed by 360+ unit tests in Vitest, with features checked end to end in Playwright.</li>
-        </ul>
-        <div class="links">
-          <a class="btn" href="https://github.com/jhscherwitz/life-hub">Code</a>
-          <a class="btn" href="https://jhscherwitz.github.io/life-hub/">Project page</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="project">
-      <figure class="shot">
-        <img src="img/lockedin.jpg" width="1440" height="900" alt="LockedIn focus timer showing one hour on the clock with a side rail of panels for tasks, calendar, sounds and music" loading="lazy">
-        <figcaption>The focus timer</figcaption>
-      </figure>
-      <div>
-        <h3>LockedIn</h3>
-        <p class="stack">JavaScript, Python</p>
-        <p>A study dashboard I use daily: a Pomodoro timer, ambient sounds, tasks, Google Calendar, Spotify and live study sessions with friends. No framework, no build step and no backend.</p>
-        <ul>
-          <li>Google Calendar connects through OAuth 2.0 entirely in the browser, so no server ever holds a token.</li>
-          <li>Pause and resume sync across machines through a hand-written MQTT client of about 8KB, after WebRTC proved unreliable across home routers.</li>
-          <li>Discord Rich Presence talks to the Discord app over its local IPC protocol, using only Python's standard library.</li>
-        </ul>
-        <div class="links">
-          <a class="btn" href="https://github.com/jhscherwitz/lockedin">Code</a>
-          <a class="btn" href="https://jhscherwitz.github.io/lockedin/">Try it</a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="background">
-  <div class="wrap">
-    <h2>Background</h2>
-    <dl>
-      <dt>Education</dt>
-      <dd><strong>University of Texas at San Antonio</strong>
-        <span>B.S. Computer Science (Artificial Intelligence), Cyber Security concentration. Expected May 2029.</span></dd>
-      <dt>Certification</dt>
-      <dd><strong>CompTIA Security+</strong>
-        <span>Earned in high school through Miller Career &amp; Technology Center's cybersecurity course.</span></dd>
-      <dt>Networking</dt>
-      <dd><strong>Network Engineering I &amp; II</strong>
-        <span>Miller Career &amp; Technology Center, Katy, 2023 to 2025.</span></dd>
-      <dt>Service</dt>
-      <dd><strong>Peer reviewer, IEEE Aerospace and Electronic Systems Magazine</strong>
-        <span>2026</span></dd>
-      <dt>Clubs</dt>
-      <dd><strong>UTSA Cybersecurity Club (Cyber Jedis)</strong>
-        <span>Also RoadRunner Climbing, UTSA's climbing club.</span></dd>
-    </dl>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p class="closing">Looking for cybersecurity internships in San Antonio and Houston.</p>
-    <div class="links">
-      <a class="btn primary" href="mailto:jhscherwitz@gmail.com">jhscherwitz@gmail.com</a>
-      <a class="btn" href="https://linkedin.com/in/jacobscherwitz">LinkedIn</a>
-    </div>
-    <p class="fine">Jacob Scherwitz, San Antonio and Katy, Texas</p>
-  </div>
-</footer>
+<script>
+  (function () {
+    var track = document.getElementById("track");
+    var dots = document.querySelectorAll(".dots span");
+    document.querySelectorAll(".nav-btns button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth, behavior: "smooth" });
+      });
+    });
+    track.addEventListener("scroll", function () {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach(function (d, n) { d.classList.toggle("on", n === i); });
+    }, { passive: true });
+  })();
+</script>
 </body>
 </html>
