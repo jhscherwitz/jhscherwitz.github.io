@@ -128,12 +128,13 @@
   .dots span.on { background: #fff; }
 
   /* Background rows */
-  .background { padding: clamp(80px, 12vw, 140px) 0 clamp(60px, 9vw, 100px); }
-  .background .label { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
-  .row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 34px 4px; border-bottom: 1px solid var(--line); }
+  .background { padding: clamp(56px, 8vw, 88px) clamp(20px, 4vw, 52px) clamp(48px, 7vw, 80px); }
+  .background .label { margin-bottom: 24px; }
+  .row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
   .row:first-of-type { border-top: 1px solid var(--line); }
-  .row .num { font-size: 15px; letter-spacing: 0.3em; color: var(--ink-faint); font-weight: 600; }
-  .row h3 { margin: 0 0 10px; font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; color: #D6D6D6; line-height: 1.1; }
+  .row:last-of-type { border-bottom: 0; }
+  .row .num { font-size: 15px; color: var(--ink-faint); font-weight: 600; padding-top: 2px; }
+  .row h3 { margin: 0 0 4px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
   .row p { margin: 0; color: var(--ink-soft); max-width: 34em; }
 
   /* Contact + footer */
@@ -237,12 +238,12 @@
     </div>
   </section>
 
-  <section class="background" id="background">
+  <section class="panel background" id="background" style="margin-top:20px">
     <p class="label">Background</p>
-    <div class="row"><span class="num">01</span><div><h3>UTSA</h3><p>B.S. Computer Science (Artificial Intelligence) with a Cyber Security concentration. Expected May 2029. Member of the UTSA Cybersecurity Club (Cyber Jedis).</p></div></div>
-    <div class="row"><span class="num">02</span><div><h3>CompTIA Security+</h3><p>Earned May 2025 through Miller Career &amp; Technology Center's cyber security course. <a href="https://www.credly.com/badges/8416bdd7-ce28-4b76-98ec-d2aa6dd01e0b">View the badge</a>.</p></div></div>
-    <div class="row"><span class="num">03</span><div><h3>Networking</h3><p>Network Engineering I and II at Miller Career &amp; Technology Center in Katy, 2023 to 2025.</p></div></div>
-    <div class="row"><span class="num">04</span><div><h3>Peer review</h3><p>Reviewed a manuscript for IEEE Aerospace and Electronic Systems Magazine, 2026.</p></div></div>
+    <div class="row"><span class="num">Education</span><div><h3>University of Texas at San Antonio</h3><p>B.S. Computer Science (Artificial Intelligence), Cyber Security concentration. Expected May 2029. Member of the Cybersecurity Club (Cyber Jedis).</p></div></div>
+    <div class="row"><span class="num">Certification</span><div><h3>CompTIA Security+</h3><p>Earned May 2025 through Miller Career &amp; Technology Center's cyber security course. <a href="https://www.credly.com/badges/8416bdd7-ce28-4b76-98ec-d2aa6dd01e0b">View the badge</a></p></div></div>
+    <div class="row"><span class="num">Networking</span><div><h3>Cisco Network Engineering I &amp; II</h3><p>Miller Career &amp; Technology Center, Katy, 2023 to 2025.</p></div></div>
+    <div class="row"><span class="num">Service</span><div><h3>Peer reviewer</h3><p>IEEE Aerospace and Electronic Systems Magazine, 2026.</p></div></div>
   </section>
 
   <section class="panel contact" id="contact">
