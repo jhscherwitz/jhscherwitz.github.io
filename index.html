@@ -108,9 +108,9 @@
   .nav-btns button { width: 42px; height: 42px; border-radius: 3px; border: 0; background: #2A2A2A; color: #fff; cursor: pointer; display: grid; place-items: center; }
   .nav-btns button:hover { background: #3A3A3A; }
   .nav-btns svg { width: 16px; height: 16px; stroke: currentColor; }
-  .track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .track::-webkit-scrollbar { display: none; }
-  .slide { flex: 0 0 100%; scroll-snap-align: start; background: var(--panel-2); border-radius: 3px; overflow: hidden; display: grid; grid-template-columns: 1.35fr 1fr; }
+  .track { display: block; }
+  .slide[hidden] { display: none !important; }
+  .slide { background: var(--panel-2); border-radius: 3px; overflow: hidden; display: grid; grid-template-columns: 1.35fr 1fr; }
   .slide .shot { position: relative; min-height: 320px; align-self: stretch; }
   .slide { align-items: stretch; }
   .slide .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
@@ -214,7 +214,7 @@
             </div>
           </div>
         </article>
-        <article class="slide">
+        <article class="slide" hidden>
           <div class="shot"><img src="img/lockedin.jpg" width="1440" height="900" alt="" loading="lazy"></div>
           <div class="body">
             <span class="count">02 / 02</span>
@@ -262,17 +262,17 @@
 
 <script>
   (function () {
-    var track = document.getElementById("track");
+    var slides = document.querySelectorAll("#track .slide");
     var dots = document.querySelectorAll(".dots span");
+    var i = 0;
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.hidden = k !== i; });
+      dots.forEach(function (d, k) { d.classList.toggle("on", k === i); });
+    }
     document.querySelectorAll(".nav-btns button").forEach(function (b) {
-      b.addEventListener("click", function () {
-        track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth, behavior: "smooth" });
-      });
+      b.addEventListener("click", function () { show(i + Number(b.dataset.dir)); });
     });
-    track.addEventListener("scroll", function () {
-      var i = Math.round(track.scrollLeft / track.clientWidth);
-      dots.forEach(function (d, n) { d.classList.toggle("on", n === i); });
-    }, { passive: true });
   })();
 </script>
 </body>
