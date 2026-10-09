@@ -76,7 +76,7 @@
   .arrow svg { width: 16px; height: 16px; stroke: var(--orange); }
 
   /* Hero */
-  .hero { padding: clamp(56px, 9vw, 96px) clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px); text-align: center; }
+  .hero { padding: clamp(56px, 9vw, 96px) clamp(20px, 3vw, 28px); text-align: center; }
   .hero h1 { font-size: clamp(38px, 6.6vw, 76px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 800; margin: 0 auto 20px; max-width: 13em; }
   .hero .lede { color: var(--on-panel-soft); max-width: 38em; margin: 0 auto 32px; font-size: clamp(16px, 1.5vw, 18px); }
   .hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
@@ -96,7 +96,7 @@
   .about p.big span { color: var(--ink-faint); }
 
   /* Focus */
-  .focus { padding: clamp(64px, 9vw, 100px) clamp(20px, 4vw, 52px); text-align: center; }
+  .focus { padding: clamp(32px, 5vw, 52px) clamp(20px, 4vw, 52px); margin-top: 20px; }
   .focus-list { list-style: none; margin: 28px 0 0; padding: 0; }
   .focus-list li { font-size: clamp(30px, 6vw, 72px); font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.16; }
   .focus-list li + li { margin-top: 2px; }
@@ -172,7 +172,6 @@
       Jacob Scherwitz
     </a>
     <nav aria-label="Sections">
-      <a class="hide-sm" href="#about">About</a>
       <a href="#projects">Projects</a>
       <a class="hide-sm" href="#background">Background</a>
       <a href="#contact">Contact</a>
@@ -180,41 +179,20 @@
   </header>
 
   <section class="panel hero" id="top">
-    <h1>Cybersecurity Student Based in San Antonio</h1>
-    <p class="lede">Computer science at UTSA with a cyber security concentration, and CompTIA Security+ certified. I build the tools I use every day.</p>
+    <h1>Hi, I'm Jacob.</h1>
+    <p class="lede">I study computer science at UTSA with a cyber security concentration. Outside of class I build small tools for myself. Two of them are below.</p>
     <div class="actions">
-      <a class="pill" href="#contact">Contact Me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="pill" href="mailto:jhscherwitz@gmail.com">Email me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       <a class="ghost" href="Jacob_Scherwitz_Resume.pdf">View resume</a>
     </div>
-    <div class="cards">
-      <a class="card" href="https://github.com/jhscherwitz/life-hub">
-        <img src="img/lifehub-dashboard.jpg" width="1280" height="840" alt="Life Hub dashboard with weather, today's meetings on a timeline, tasks and an AI assistant panel">
-        <div class="meta"><div><h3>Life Hub</h3><p>Desktop app with an AI agent</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-      <a class="card" href="https://jhscherwitz.github.io/lockedin/">
-        <img src="img/lockedin.jpg" width="1440" height="900" alt="LockedIn focus timer showing one hour, with a side rail of panels" loading="lazy">
-        <div class="meta"><div><h3>LockedIn</h3><p>Study dashboard with live sync</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-      </a>
-    </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="avatar" aria-hidden="true">JS</div>
-    <p class="big">Hi, I'm Jacob. I'm a sophomore at UTSA studying computer science with a concentration in cyber security. <span>I earned my Security+ in high school after two years of Cisco networking classes, and now I spend my free time building software I actually use.</span></p>
-  </section>
 
   <section class="panel focus" id="projects">
-    <p class="label">What I'm doing</p>
-    <ul class="focus-list">
-      <li>Cybersecurity</li>
-      <li>Networking</li>
-      <li>Web Development</li>
-      <li>Desktop Apps</li>
-    </ul>
 
-    <div class="projects">
+    <div class="projects" style="margin-top:0">
       <div class="projects-head">
-        <p class="label">Selected projects</p>
+        <p class="label">Projects</p>
         <div class="nav-btns">
           <button type="button" data-dir="-1" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
           <button type="button" data-dir="1" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -268,18 +246,19 @@
     <p class="label">Background</p>
     <div class="row"><span class="num">01</span><div><h3>UTSA</h3><p>B.S. Computer Science (Artificial Intelligence) with a Cyber Security concentration. Expected May 2029. Member of the UTSA Cybersecurity Club (Cyber Jedis).</p></div></div>
     <div class="row"><span class="num">02</span><div><h3>CompTIA Security+</h3><p>Earned May 2025 through Miller Career &amp; Technology Center's cyber security course. <a href="https://www.credly.com/badges/8416bdd7-ce28-4b76-98ec-d2aa6dd01e0b">View the badge</a>.</p></div></div>
-    <div class="row"><span class="num">03</span><div><h3>Cisco Networking</h3><p>Network Engineering I and II at Miller Career &amp; Technology Center in Katy, 2023 to 2025.</p></div></div>
-    <div class="row"><span class="num">04</span><div><h3>IEEE Peer Reviewer</h3><p>Reviewed a manuscript for IEEE Aerospace and Electronic Systems Magazine in 2026.</p></div></div>
+    <div class="row"><span class="num">03</span><div><h3>Networking</h3><p>Network Engineering I and II at Miller Career &amp; Technology Center in Katy, 2023 to 2025.</p></div></div>
+    <div class="row"><span class="num">04</span><div><h3>Peer review</h3><p>Reviewed a manuscript for IEEE Aerospace and Electronic Systems Magazine, 2026.</p></div></div>
   </section>
 
   <section class="panel contact" id="contact">
-    <h2>Looking for a Cybersecurity Intern?</h2>
+    <h2>Get in touch</h2>
+    <p style="color:var(--on-panel-soft);margin:0 auto 28px;max-width:32em">I'm looking for a cybersecurity internship in San Antonio or Houston.</p>
     <div class="actions">
-      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact Me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="pill" href="mailto:jhscherwitz@gmail.com">Email me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
     <div class="foot">
-      <div><h4>Jacob Scherwitz</h4><p>San Antonio and Katy, Texas. Open to cybersecurity internships in San Antonio and Houston.</p></div>
-      <div><h4>Navigation</h4><ul><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#background">Background</a></li><li><a href="Jacob_Scherwitz_Resume.pdf">Resume</a></li></ul></div>
+      <div><h4>Jacob Scherwitz</h4><p>San Antonio and Katy, Texas.</p></div>
+      <div><h4>Navigation</h4><ul><li><a href="#projects">Projects</a></li><li><a href="#background">Background</a></li><li><a href="Jacob_Scherwitz_Resume.pdf">Resume</a></li></ul></div>
       <div><h4>Find me</h4><ul><li><a href="mailto:jhscherwitz@gmail.com">jhscherwitz@gmail.com</a></li><li><a href="https://linkedin.com/in/jacobscherwitz">LinkedIn</a></li><li><a href="https://github.com/jhscherwitz">GitHub</a></li></ul></div>
     </div>
     <p class="copy">2026 | Jacob Scherwitz</p>
