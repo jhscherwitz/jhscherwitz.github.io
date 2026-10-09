@@ -58,20 +58,20 @@
   /* Buttons */
   .pill {
     display: inline-flex; align-items: center; gap: 14px;
-    padding: 9px 9px 9px 24px; border-radius: 3px;
+    padding: 9px 9px 9px 24px; border-radius: 999px;
     background: linear-gradient(180deg, var(--accent-2), var(--accent));
     color: #10200A; font-weight: 700; font-size: 16px; text-decoration: none;
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
   .pill:hover { filter: brightness(1.06); }
-  .pill .dot { width: 34px; height: 34px; border-radius: 2px; background: #10200A; display: grid; place-items: center; }
+  .pill .dot { width: 34px; height: 34px; border-radius: 50%; background: #10200A; display: grid; place-items: center; }
   .pill .dot svg { width: 16px; height: 16px; stroke: var(--accent-2); }
   .ghost {
-    display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 3px;
+    display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px;
     border: 1.5px solid var(--line-dark); color: var(--on-panel); font-weight: 600; font-size: 15px; text-decoration: none;
   }
   .ghost:hover { border-color: #fff; }
-  .arrow { width: 34px; height: 34px; border-radius: 2px; background: #fff; display: grid; place-items: center; flex: none; }
+  .arrow { width: 34px; height: 34px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; }
   .arrow svg { width: 16px; height: 16px; stroke: var(--accent); }
 
   /* Hero */
