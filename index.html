@@ -163,6 +163,15 @@
     html { scroll-behavior: auto; }
     .pill, .card img { transition: none; }
   }
+  .contact-wrap { position: relative; display: inline-block; }
+  button.pill { border: 0; cursor: pointer; font-family: inherit; }
+  .contact-btn[aria-expanded="true"] .dot svg { transform: rotate(180deg); }
+  .contact-btn .dot svg { transition: transform 150ms ease; }
+  .contact-card { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); z-index: 10; min-width: 320px; background: #1F1F1F; border: 1px solid var(--line-dark); border-radius: 4px; padding: 6px; text-align: left; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+  .contact-card a { display: grid; grid-template-columns: 80px 1fr; gap: 12px; padding: 12px 14px; border-radius: 3px; text-decoration: none; color: var(--on-panel); font-size: 15px; font-weight: 600; }
+  .contact-card a span { color: var(--on-panel-soft); font-weight: 500; }
+  .contact-card a:hover { background: #2A2A2A; }
+  @media (prefers-reduced-motion: reduce) { .contact-btn .dot svg { transition: none; } }
 </style>
 </head>
 <body>
@@ -178,7 +187,15 @@
     <h1>Hi, I'm Jacob.</h1>
     <p class="lede">I study computer science at UTSA with a cyber security concentration. Outside of class I build small tools for myself. Two of them are below.</p>
     <div class="actions">
-      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <div class="contact-wrap">
+        <button type="button" class="pill contact-btn" aria-expanded="false">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="contact-card" hidden>
+          <a href="mailto:jhscherwitz@gmail.com"><span>Email</span>jhscherwitz@gmail.com</a>
+          <a href="https://linkedin.com/in/jacobscherwitz"><span>LinkedIn</span>linkedin.com/in/jacobscherwitz</a>
+          <a href="https://github.com/jhscherwitz"><span>GitHub</span>github.com/jhscherwitz</a>
+          <a href="Jacob_Scherwitz_Resume.pdf"><span>Resume</span>Download PDF</a>
+        </div>
+      </div>
       <a class="ghost" href="Jacob_Scherwitz_Resume.pdf">View resume</a>
     </div>
   </section>
@@ -245,7 +262,15 @@
     <h2>Get in touch</h2>
     <p style="color:var(--on-panel-soft);margin:0 auto 28px;max-width:32em">I'm looking for a cybersecurity internship in San Antonio or Houston.</p>
     <div class="actions">
-      <a class="pill" href="mailto:jhscherwitz@gmail.com">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <div class="contact-wrap">
+        <button type="button" class="pill contact-btn" aria-expanded="false">Contact me <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="contact-card" hidden>
+          <a href="mailto:jhscherwitz@gmail.com"><span>Email</span>jhscherwitz@gmail.com</a>
+          <a href="https://linkedin.com/in/jacobscherwitz"><span>LinkedIn</span>linkedin.com/in/jacobscherwitz</a>
+          <a href="https://github.com/jhscherwitz"><span>GitHub</span>github.com/jhscherwitz</a>
+          <a href="Jacob_Scherwitz_Resume.pdf"><span>Resume</span>Download PDF</a>
+        </div>
+      </div>
     </div>
     <div class="foot">
       <div><h4>Jacob Scherwitz</h4><p>San Antonio and Katy, Texas.</p></div>
@@ -255,5 +280,28 @@
   </section>
 </div>
 
+<script>
+  document.querySelectorAll(".contact-btn").forEach(function (btn) {
+    var card = btn.nextElementSibling;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = card.hidden;
+      document.querySelectorAll(".contact-card").forEach(function (c) { c.hidden = true; });
+      document.querySelectorAll(".contact-btn").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+      card.hidden = !open;
+      btn.setAttribute("aria-expanded", String(open));
+    });
+  });
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".contact-card")) return;
+    document.querySelectorAll(".contact-card").forEach(function (c) { c.hidden = true; });
+    document.querySelectorAll(".contact-btn").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll(".contact-card").forEach(function (c) { c.hidden = true; });
+    document.querySelectorAll(".contact-btn").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+  });
+</script>
 </body>
 </html>
